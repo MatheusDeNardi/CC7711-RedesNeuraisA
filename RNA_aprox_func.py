@@ -13,7 +13,7 @@ y = arquivo[1]
 
 plt.figure(figsize=(16,8))
 plt.plot(x,y)
-
+plt.show()
 
 regr = MLPRegressor(hidden_layer_sizes=(45,45),
                     max_iter=10000,
@@ -28,15 +28,15 @@ for z in range(10):
     #print da curva de aprendizagem
     plt.figure(figsize=(16,8))
     plt.plot(regr.loss_curve_)
-    plt.savefig(f'{regr.best_loss_}_teste2_curva.png')
+    plt.show()
 
     #preditor
     y_est = regr.predict(x)
     plt.figure(figsize=(16,8))
     plt.plot(x,y,x,y_est)
-    # plt.show()
+    plt.show()
     bests_loss.append(regr.best_loss_)
-    plt.savefig(f'{regr.best_loss_}_teste2_preditor.png')
+    plt.show()
 mean = np.average(bests_loss)
 desv_padrao = np.std(bests_loss)
 print(f"Média: {mean}")
